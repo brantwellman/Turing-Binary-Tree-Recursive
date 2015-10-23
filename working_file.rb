@@ -1,3 +1,24 @@
+class List
+  attr_reader :head
+
+  def count
+    if head
+      head.count
+    else
+      0
+    end
+  end
+
+  def push(data)
+    node = Node.new(data)
+    if head.nil?
+      @head = node
+    else
+      head.push(node)
+    end
+  end
+end
+
 class Node
   attr_accessor :data, :link
 
@@ -22,26 +43,7 @@ class Node
   end
 end
 
-class List
-  attr_reader :head
 
-  def push(data)
-    node = Node.new(data)
-    if head.nil?
-      @head = node
-    else
-      head.push(node)
-    end
-  end
-
-  def count
-    if head
-      head.count
-    else
-      0
-    end
-  end
-end
 
 numbers = (0..1000).to_a.sample(16)
 list = List.new
