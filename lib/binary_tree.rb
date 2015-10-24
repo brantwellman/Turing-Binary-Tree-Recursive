@@ -16,7 +16,7 @@ class BinaryTree
     if head.nil?
       @head = node
     else
-      head.insert(node)
+      head.insert(node, data)
     end
 
   end
@@ -29,18 +29,18 @@ class Node
     @data = data
   end
 
-  def insert(node)
-    if @data < node.data
+  def insert(new_node, data)
+    if @data < new_node.data
       if r_link.nil?
-        @r_link = node
+        @r_link = new_node
       else
-        r_link.insert(node)
+        r_link.insert(new_node, data)
       end
-    elsif @data > node.data
+    elsif @data > new_node.data
       if l_link.nil?
-        @l_link = node
+        @l_link = new_node
       else
-        l_link.insert(node)
+        l_link.insert(new_node, data)
       end
     end
   end
@@ -63,6 +63,6 @@ numbers = ["3", "4", "2", "5"]
 numbers.each do |num|
   tree.push(num)
 end
-
+tree.push("6")
 p tree
 puts tree.count
