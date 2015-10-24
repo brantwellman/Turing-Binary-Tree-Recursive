@@ -1,3 +1,5 @@
+require 'pry'
+
 class BinaryTree
   attr_reader :head
 
@@ -5,21 +7,7 @@ class BinaryTree
     if head.nil?
       0
     else
-      count = 1
-      current = head
-
-      if current.r_link?
-        count += 1
-      end
-      if current.l_link?
-        count += 1
-      end
-
-      # while current.link?
-      #   count += 1
-      #   current = current.link
-      # end
-      count
+      head.count
     end
   end
 
@@ -28,13 +16,7 @@ class BinaryTree
     if head.nil?
       @head = node
     else
-      head.push(node)
-      ##### This is the recursive call
-      # target = head
-      # while target.link?
-      #   target = target.link
-      # end
-      # target.link = Node.new(data)
+      head.insert(node)
     end
 
   end
@@ -47,37 +29,40 @@ class Node
     @data = data
   end
 
-# This is the recursive method to push on
-  def push(node)
-    if data > node.data
+  def insert(node)
+    if @data < node.data
       if r_link.nil?
         @r_link = node
       else
-        r_link.push(node)
+        r_link.insert(node)
       end
-    elsif data < node.data
+    elsif @data > node.data
       if l_link.nil?
         @l_link = node
       else
-        l_link.push(node)
+        l_link.insert(node)
       end
     end
   end
 
-  def r_link?
-    r_link
-  end
-
-  def l_link?
-    l_link
+  def count
+    if r_link && l_link
+      r_link.count + 1 + (l_link.count)
+    elsif r_link
+      r_link.count + 1
+    elsif l_link
+      l_link.count + 1
+    else
+      1
+    end
   end
 end
 
 tree = BinaryTree.new
-numbers = ["3", "4"]
+numbers = ["3", "4", "2", "5"]
 numbers.each do |num|
   tree.push(num)
 end
 
 p tree
-p tree.count
+puts tree.count
