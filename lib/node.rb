@@ -8,18 +8,18 @@ class Node
     @data = data
   end
 
-  def insert(new_node, data)
+  def insert(new_node)
     if @data < new_node.data
       if r_link.nil?
         @r_link = new_node
       else
-        r_link.insert(new_node, data)
+        r_link.insert(new_node)
       end
     elsif @data > new_node.data
       if l_link.nil?
         @l_link = new_node
       else
-        l_link.insert(new_node, data)
+        l_link.insert(new_node)
       end
     end
   end
@@ -36,27 +36,33 @@ class Node
     end
   end
 
-#   def nodes_include?(data)
-# #   r link.data inlude? data
-# #   or does l link.data include? data?
-#     if l_link.data.include?(data) || r_link.data.include?(data) == true
-#       true
-#     elsif l_link.nodes_include?(data) == true
-#       true
-#     elsif r_link.nodes_include?(data) == true
-#       true
-#     else
-#       false
-#     end
-#   end
+  def nodes_include?(data)
+#   r link.data inlude? data
+#   or does l link.data include? data?
+    if l_link.data.include?(data) || r_link.data.include?(data) == true
+      true
+    elsif l_link.nodes_include?(data) == true
+      true
+    elsif r_link.nodes_include?(data) == true
+      true
+    else
+      false
+    end
+  end
 
   def maximum_node(node)
-    if r_link == nil
-      data
+    if node.r_link == nil
+      node.data
     else
-      node.data = node.r_link.data
-      node = node.r_link
-      r_link.maximum_node(node)
+      maximum_node(node.r_link)
+    end
+  end
+
+  def minimum_node(node)
+    if node.l_link == nil
+      node.data
+    else
+      minimum_node(node.l_link)
     end
   end
 

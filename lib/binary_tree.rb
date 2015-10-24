@@ -17,7 +17,7 @@ class BinaryTree
     if head.nil?
       @head = node
     else
-      head.insert(node, data)
+      head.insert(node)
     end
   end
 
@@ -35,11 +35,10 @@ class BinaryTree
   end
 
   def maximum
-    # if count == 1
-    #   head.data
-    # else
-      # binding.pry
     head.maximum_node(head)
-    # end
+  end
+
+  def minimum
+    head.minimum_node(head)
   end
 end

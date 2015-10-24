@@ -4,17 +4,46 @@ require 'pry'
 
 
 tree = BinaryTree.new
-numbers = ["3"]
-numbers.each do |num|
-  tree.push(num)
-end
-tree.push("4")
-tree.push("5")
-tree.push("6")
-p tree
+tree.push("2")
+# puts tree.maximum + "max"
+# puts tree.minimum + "min"
+puts "count"
 puts tree.count
+p tree
 # binding.pry
-puts tree.maximum
+tree.push("3")
+# puts tree.maximum + "max"
+# puts tree.minimum + "min"
+puts "count"
+puts tree.count
+p tree
+# binding.pry
+tree.push("1")
+# puts tree.maximum + "max"
+# puts tree.minimum + "min"
+puts "count"
+puts tree.count
+p tree
+# binding.pry
+tree.push("5")
+# puts tree.maximum + "max"
+# puts tree.minimum + "min"
+puts "count"
+puts tree.count
+p tree
+# binding.pry
+tree.push("6")
+# puts tree.maximum + "max"
+# puts tree.minimum + "min"
+puts "count"
+puts tree.count
+p tree
+# puts "count"
+# p tree.count
+# binding.pry
+# puts tree.maximum
+# puts tree.minimum
+
 
 # p tree.include?("3")
 # p tree.include?("4")

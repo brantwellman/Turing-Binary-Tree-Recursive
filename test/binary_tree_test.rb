@@ -12,7 +12,7 @@ class BinaryTreeTest < Minitest::Test
 
   def test_it_starts_with_a_count_of_zero
     tree = BinaryTree.new
-    # assert_equal 0, tree.count
+    assert_equal 0, tree.count
   end
 
   def test_it_pushes_data_onto_an_empty_tree
@@ -93,5 +93,30 @@ class BinaryTreeTest < Minitest::Test
     tree.push("1")
     tree.push("6")
     assert_equal "6", tree.maximum
+  end
+
+  def test_it_returns_the_head_value_as_min_when_tere_is_only_one_node
+    tree = BinaryTree.new
+    tree.push("3")
+    assert_equal "3", tree.minimum
+  end
+
+  def test_it_returns_min_value_from_a_tree_with_a_max_depth_of_two
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("4")
+    tree.push("2")
+    assert_equal "2", tree.minimum
+  end
+
+  def test_it_returns_min_value_from_a_tree_with_a_depth_greater_than_two
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("4")
+    tree.push("2")
+    tree.push("5")
+    tree.push("1")
+    tree.push("6")
+    assert_equal "1", tree.minimum
   end
 end
