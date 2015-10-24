@@ -24,15 +24,40 @@ class Node
     end
   end
 
-  def count
+  def node_count
     if r_link && l_link
-      r_link.count + 1 + (l_link.count)
+      r_link.node_count + 1 + (l_link.node_count)
     elsif r_link
-      r_link.count + 1
+      r_link.node_count + 1
     elsif l_link
-      l_link.count + 1
+      l_link.node_count + 1
     else
       1
     end
   end
+
+#   def nodes_include?(data)
+# #   r link.data inlude? data
+# #   or does l link.data include? data?
+#     if l_link.data.include?(data) || r_link.data.include?(data) == true
+#       true
+#     elsif l_link.nodes_include?(data) == true
+#       true
+#     elsif r_link.nodes_include?(data) == true
+#       true
+#     else
+#       false
+#     end
+#   end
+
+  def maximum_node(node)
+    if r_link == nil
+      data
+    else
+      node.data = node.r_link.data
+      node = node.r_link
+      r_link.maximum_node(node)
+    end
+  end
+
 end

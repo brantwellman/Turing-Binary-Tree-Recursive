@@ -8,7 +8,7 @@ class BinaryTree
     if head.nil?
       0
     else
-      head.count
+      head.node_count
     end
   end
 
@@ -22,6 +22,24 @@ class BinaryTree
   end
 
   def include?(data)
-    head.data == data
+    if head.data.include?(data)
+      true
+    else
+      head.nodes_include?(data)
+    end
+    # if head.data == data
+    #   true
+    # else
+    #   head.nodes_include?(data)
+    # end
+  end
+
+  def maximum
+    # if count == 1
+    #   head.data
+    # else
+      # binding.pry
+    head.maximum_node(head)
+    # end
   end
 end
