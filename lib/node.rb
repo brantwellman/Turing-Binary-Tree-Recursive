@@ -52,7 +52,7 @@ class Node
 
   def node_depth(node, input)
     if !node_include?(node, input)
-      puts "Sorry, that number is not in the tree."
+      puts "Sorry, no depth for a number not in the tree."
       return false
     elsif node.data == input
       0

@@ -10,7 +10,7 @@ tree = BinaryTree.new
 # tree.push("4")
 # tree.push("7")
 
-numbers = (0..1000).to_a.map{|n| n.to_i }.sample(20)
+numbers = (0..1000).to_a.map{|n| n.to_s }.sample(100)
 numbers.each do |num|
   tree.push(num)
 end
@@ -18,11 +18,10 @@ end
 p tree
 p tree.count
 
-# puts tree.maximum
-# puts tree.minimum
+puts tree.maximum
+puts tree.minimum
 
-# p tree.include?("4")
-# p tree.include?("9")
-# p tree.depth_of("7")
+p tree.include?("9")
+p tree.depth_of("7")
 
 p tree.sort
