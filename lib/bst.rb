@@ -4,48 +4,19 @@ require 'pry'
 
 
 tree = BinaryTree.new
-tree.push("2")
-# puts tree.maximum + "max"
-# puts tree.minimum + "min"
-puts "count"
-puts tree.count
-p tree
-# binding.pry
 tree.push("3")
-# puts tree.maximum + "max"
-# puts tree.minimum + "min"
-puts "count"
-puts tree.count
-p tree
-# binding.pry
+
 tree.push("1")
-# puts tree.maximum + "max"
-# puts tree.minimum + "min"
-puts "count"
-puts tree.count
-p tree
-# binding.pry
 tree.push("5")
-# puts tree.maximum + "max"
-# puts tree.minimum + "min"
-puts "count"
-puts tree.count
-p tree
-# binding.pry
 tree.push("6")
-# puts tree.maximum + "max"
-# puts tree.minimum + "min"
-puts "count"
-puts tree.count
+tree.push("4")
 p tree
-# puts "count"
-# p tree.count
-# binding.pry
+p tree.count
 # puts tree.maximum
 # puts tree.minimum
 
 
-# p tree.include?("3")
+p tree.include?("4")
 # p tree.include?("4")
 # p tree.include?("2")
 # p tree.include?("8")

@@ -21,17 +21,12 @@ class BinaryTree
     end
   end
 
-  def include?(data)
-    if head.data.include?(data)
+  def include?(input)
+    if head.data == input
       true
     else
-      head.nodes_include?(data)
+      head.node_include?(head, input)
     end
-    # if head.data == data
-    #   true
-    # else
-    #   head.nodes_include?(data)
-    # end
   end
 
   def maximum

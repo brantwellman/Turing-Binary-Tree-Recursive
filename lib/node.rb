@@ -36,15 +36,15 @@ class Node
     end
   end
 
-  def nodes_include?(data)
-#   r link.data inlude? data
-#   or does l link.data include? data?
-    if l_link.data.include?(data) || r_link.data.include?(data) == true
+  def node_include?(node, input)
+    if node.r_link == nil && node.l_link == nil
+      node.data.include?(input)
+    elsif input == node.data
       true
-    elsif l_link.nodes_include?(data) == true
-      true
-    elsif r_link.nodes_include?(data) == true
-      true
+    elsif (input > node.data) && node.r_link
+      node_include?(node.r_link, input)
+    elsif (input < node.data) && node.l_link
+      node_include?(node.l_link, input)
     else
       false
     end

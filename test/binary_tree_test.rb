@@ -39,36 +39,33 @@ class BinaryTreeTest < Minitest::Test
     assert tree.include?("4")
   end
 
-  # def test_if_it_returns_false_for_a_value_not_in_the_head
-  #   skip
-  #   tree = BinaryTree.new
-  #   tree.push("4")
-  #   refute tree.include?("5")
-  # end
+  def test_if_it_returns_false_for_a_value_not_in_the_head
+    tree = BinaryTree.new
+    tree.push("4")
+    refute tree.include?("5")
+  end
 
-  # def test_if_it_includes_a_value_in_an_existing_tree
-  #   skip
-  #   tree = BinaryTree.new
-  #   tree.push("13")
-  #   tree.push("15")
-  #   tree.push("12")
-  #   tree.push("11")
-  #   tree.push("10")
-  #   tree.push("14")
-  #   assert tree.include?("12")
-  # end
-  #
-  # def test_if_it_returns_false_for_a_value_not_in_a_tree
-  #   skip
-  #   tree = BinaryTree.new
-  #   tree.push("13")
-  #   tree.push("15")
-  #   tree.push("12")
-  #   tree.push("11")
-  #   tree.push("10")
-  #   tree.push("14")
-  #   assert tree.include?("12")
-  # end
+  def test_if_it_includes_a_value_in_an_existing_tree
+    tree = BinaryTree.new
+    tree.push("13")
+    tree.push("15")
+    tree.push("12")
+    tree.push("11")
+    tree.push("10")
+    tree.push("14")
+    assert tree.include?("12")
+  end
+  
+  def test_if_it_returns_false_for_a_value_not_in_a_tree
+    tree = BinaryTree.new
+    tree.push("13")
+    tree.push("15")
+    tree.push("12")
+    tree.push("11")
+    tree.push("10")
+    tree.push("14")
+    assert tree.include?("12")
+  end
 
   def test_it_returns_the_head_value_as_max_when_there_is_only_one_node
     tree = BinaryTree.new
