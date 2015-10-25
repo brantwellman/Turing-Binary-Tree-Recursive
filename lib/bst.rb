@@ -16,7 +16,8 @@ p tree.count
 # puts tree.minimum
 
 
-p tree.include?("4")
+# p tree.include?("8")
+p tree.depth_of("8")
 # p tree.include?("4")
 # p tree.include?("2")
 # p tree.include?("8")

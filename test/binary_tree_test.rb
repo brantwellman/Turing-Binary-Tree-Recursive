@@ -55,7 +55,16 @@ class BinaryTreeTest < Minitest::Test
     tree.push("14")
     assert tree.include?("12")
   end
-  
+
+  def test_it_includes_a_value_that_has_one_link_off_it
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("1")
+    tree.push("5")
+    tree.push("6")
+    assert tree.include?("5")
+  end
+
   def test_if_it_returns_false_for_a_value_not_in_a_tree
     tree = BinaryTree.new
     tree.push("13")
@@ -115,5 +124,46 @@ class BinaryTreeTest < Minitest::Test
     tree.push("1")
     tree.push("6")
     assert_equal "1", tree.minimum
+  end
+
+  def test_it_returns_the_proper_depth_value_for_the_head
+    tree = BinaryTree.new
+    tree.push("3")
+    assert_equal 0, tree.depth_of("3")
+  end
+
+  def test_it_returns_the_proper_depth_value_for_depth_one_and_is_a_leaf
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    assert_equal 1, tree.depth_of("1")
+  end
+
+  def test_it_rturns_the_proper_depth_value_for_depth_two
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    tree.push("6")
+    assert_equal 2, tree.depth_of("6")
+  end
+
+  def test_it_returns_the_proper_depth_value_for_value_with_one_link
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    tree.push("6")
+    assert_equal 1, tree.depth_of("5")
+  end
+
+  def test_it_returns_false_when_input_for_depth_of_is_not_in_the_tree
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    tree.push("6")
+    refute tree.depth_of("4")
   end
 end
