@@ -26,14 +26,7 @@ class BinaryTree
   end
 
   def depth_of(input)
-    if !include?(input)
-      puts "Sorry, that number is not in the tree."
-      return false
-    elsif head.data == input
-      0
-    else
-      head.depth_of(head, input)
-    end
+    head.node_depth(head, input)
   end
 
   def maximum

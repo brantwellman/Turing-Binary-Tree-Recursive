@@ -2,33 +2,25 @@ require './lib/binary_tree'
 require './lib/node'
 require 'pry'
 
-
 tree = BinaryTree.new
-tree.push("3")
+# tree.push("3")
+# tree.push("1")
+# tree.push("5")
+# tree.push("6")
+# tree.push("4")
+# tree.push("7")
 
-tree.push("1")
-tree.push("5")
-tree.push("6")
-tree.push("4")
+numbers = (0..1000).to_a.map{|n| n.to_s }.sample(10)
+numbers.each do |num|
+  tree.push(num)
+end
+# binding.pry
 p tree
 p tree.count
+# binding.pry
 # puts tree.maximum
 # puts tree.minimum
 
-
-# p tree.include?("8")
-p tree.depth_of("8")
-# p tree.include?("4")
-# p tree.include?("2")
-# p tree.include?("8")
-# p tree.include?("5")
-
-# numbers = (0..1000).to_a.sample(16)
-# tree = BinaryTree.new
-# numbers.each do |num|
-#   binding.pry
-#   tree.push(num)
-# end
-#
-# puts tree.inspect
-# puts tree.count
+# p tree.include?("7")
+# p tree.include?("9")
+p tree.depth_of("7")
