@@ -166,4 +166,40 @@ class BinaryTreeTest < Minitest::Test
     tree.push("6")
     refute tree.depth_of("4")
   end
+
+  def test_it_returns_only_1_value_as_sorted_when_tree_has_1_node
+    tree = BinaryTree.new
+    tree.push("3")
+    assert_equal ["3"], tree.sort
+  end
+
+  def test_it_properly_sorts_tree_with_a_depth_of_1
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    assert_equal ["1", "3", "5"], tree.sort
+  end
+
+  def test_it_properly_sorts_tree_with_a_depth_of_2
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    tree.push("6")
+    tree.push("2")
+    assert_equal ["1", "2", "3", "5", "6"], tree.sort
+  end
+
+  def test_it_properly_sorts_tree_with_depth_greater_than_2
+    tree = BinaryTree.new
+    tree.push("3")
+    tree.push("5")
+    tree.push("1")
+    tree.push("6")
+    tree.push("2")
+    tree.push("8")
+    tree.push("7")
+    assert_equal ["1", "2", "3", "5", "6", "7", "8"], tree.sort
+  end
 end

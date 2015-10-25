@@ -37,7 +37,6 @@ class Node
   end
 
   def node_include?(node, input)
-    # binding.pry
     if node.r_link.nil? && node.l_link.nil?
       node.data == input
     elsif node.data == input
@@ -55,7 +54,6 @@ class Node
     if !node_include?(node, input)
       puts "Sorry, that number is not in the tree."
       return false
-    # binding.pry
     elsif node.data == input
       0
     elsif (input > node.data) && node.r_link
@@ -79,6 +77,19 @@ class Node
     else
       minimum_node(node.l_link)
     end
+  end
+
+  def sort_nodes(node)
+    sorted = []
+    if node.l_link
+      sorted << sort_nodes(node.l_link)
+    end
+    sorted << node.data
+    if node.r_link
+      sorted << sort_nodes(node.r_link)
+    end
+    sorted.flatten!
+    sorted
   end
 
 end

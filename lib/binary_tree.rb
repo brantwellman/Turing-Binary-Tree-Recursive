@@ -36,4 +36,8 @@ class BinaryTree
   def minimum
     head.minimum_node(head)
   end
+
+  def sort
+    head.sort_nodes(head)
+  end
 end
